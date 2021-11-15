@@ -1,0 +1,59 @@
+import random
+
+name = input("Enter your name: ")
+print("Welcome to the game" ,name)
+print(name.upper() , ", Remember The amount of lines is = the number of words needed")
+print("Let's begin")
+words = [
+    "hayley",
+    "niklaus",
+    "freya",
+    "dahlia",
+    "hope",
+    "stefan",
+    "elijah",
+    "damon",
+    "caroline",
+    "marcel",
+    "elena",
+    "camille",
+    "davina",
+    "vincent",
+    "kol",
+]
+
+word = random.choice(words)
+print("\nGuess the characters from the vampire dairies and the originals universe")
+guesses = ""
+
+turns = 12
+while turns > 0:
+  
+    failed = 0
+   
+    for char in word:
+        if char in guesses:
+            print(char, end="")
+        else:
+            print(" _ ", end="")
+          
+            failed += 1 
+    if failed == 0:
+       
+        print("\n\nYou Win")
+      
+        print("\nThe word is: ", word.title())
+        break
+   
+    guess = input("\nGuess the character: ")
+   
+    guesses += guess
+   
+    if guess not in word:
+        turns -= 1
+      
+        print("\nWrong")
+     
+        print("\nYou have", +turns, "more guesses")
+        if turns == 0:
+            print("\n\nYou lose")
